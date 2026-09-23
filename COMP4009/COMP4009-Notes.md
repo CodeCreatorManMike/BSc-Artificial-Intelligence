@@ -142,7 +142,7 @@ Conversion From Decimal To Binary:
 3/2 = 1 r1
 1/2 = 0 r1
 
-11001
+25 = 11001
 
 
 -> 14 to binary:
@@ -152,7 +152,7 @@ Conversion From Decimal To Binary:
 3/2 = 1 r1
 1/2 = 0 r1
 
-1110
+14 = 1110
 
 
 
@@ -163,3 +163,64 @@ Decimal To Octal:
 -> 25 to octal:
 
 25/8
+
+
+
+
+Summary:
+
+
+-----
+
+Self Study:
+Number Systems Introduction - Decimal, Binary, Octal & Hexadecimal:
+
+Decimal:
+-> base 10, used for everyday counting 
+
+Binary:
+-> base 2, used for computing
+
+Octal: 
+-> base 8, 0-7
+
+Hexadecimal:
+-> base 16, 0-9 A-F
+0123456789ABCDEF (A-F corresponds to 10-15)
+
+
+
+How we can convert a decimal into a binary/hexadecimal/octal:
+-> we make use of a technique called successive division
+
+348 (example) To Binary
+348 / 2 = 174    | R0
+174 / 2 = 87     | R0
+87 / 2 = 43 (.5) | R1 (cause of the 0.5 extra)
+43 / 2 = 21 (.5) | R1
+21 / 2 = 10 (.5) | R1
+10 / 2 = 5       | R0
+5 / 2 = 2        | R1
+2 / 2 = 1        | R0
+1 / 2 = 0.5      | R1
+
+-> we use the remainder, from the bottom to the top /|\ in order to get the binary value
+
+348 = 101011100
+
+
+348 (example) To Octal
+-> to work out the remainder we need take 0.5 (from 43.5) and multiply it out by 8 (base)
+348 / 8 = 43,5 | R4
+43 / 8 = 5.375 | R3
+5 / 8 = 0,625  | R5
+
+-> we use the remainder, from the bottom to the top in order to get the octal value
+
+
+
+
+
+
+
+
