@@ -1,0 +1,48 @@
+"""Module Information:"""
+"""COMP4004: Problem Solving and Programming (Semester 1 2026-2027:1[OBO])"""
+
+# First programming problem.
+
+"""Can i write a program that readss a persons weight & height and outputs their body mass index (weight divided by height squared)
+enter weight in kg, and height in cm.... weight/(height/100)**2
+"""
+
+# collect users weight - still needs to be normalized
+# its important to keep in mind that both of these individual variables could also be float values and will output a float value
+# EG: 85
+weight = float(input("\nWhat is your weight in Kilograms (KG)?"))
+
+# collect users height - still needs to be normalized
+# its important to keep in mind that both of these individual variables could also be float values and will output a float value
+# EG: 182.88
+height = float(input("\nWhat is your height in Centre meters (CM)?"))
+
+
+# bmi needs to be initialized with the equation to reach its own conclusion
+bmi = float(weight / (height/100)**2)
+
+# BMI reporting message:
+bmi_reporting_message = f"\nYour BMI is {bmi}"
+
+print(bmi_reporting_message)
+
+
+
+"""
+Arithmetic In Python
+
++ Addition
+- Subtraction
+* Multiplication
+/ Divisiion
+** Exponentiation
+// Floor Division (divide two numbers and round the result donw)
+% Modulus (remainder after one number is divided by another)
+
+
+
+Input Statements:
+
+answer = input('Enter your name>')
+print(your name is  ', answer)
+"""

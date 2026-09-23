@@ -1,0 +1,40 @@
+# initializing project variables
+# these variables represent the number of students for each of the respective courses
+n_students_CS = 70
+n_students_ITB = 30
+n_students_AI = 35
+n_students_CYB= 45
+
+
+
+# this is a calculation whereby we determine the total number of students across all courses
+total_students = int(n_students_CS + n_students_ITB + n_students_AI + n_students_CYB)
+
+# error handling print statement
+# print(f"\nThe total number of students is {total_students}")
+
+# student set processing/calculation
+# student sets contain 20 students from any course
+# our goal is to find the total number of sets, to do so we will take the total number of students and / 20
+total_student_sets = float(total_students/20)
+print(f"\nThe total number of student sets is {total_student_sets}")
+
+
+"""
+DICTIONARY EXAMPLE:
+-> this would be a more effecient way at handling matching course names to number of students
+
+courses = {
+  "computer science": 70,
+  "IT For Business": 30,
+  "Artificial Intelligence": 35,
+  "cyber": 45
+}
+
+
+we now make use of a for loop in order to iterate over all key value pairs and print them cleanly
+
+for course_name, student_count in courses.items():
+  print(f"{course_name} has {student_count} students")
+
+"""

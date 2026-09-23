@@ -1,0 +1,50 @@
+COMP4009: Foundations of Computer Systems (Semester 1 2026-2027:1[OBO])
+Notes:
+
+read before week 2:
+
+https://research.ebsco.com/plink/016107f9-1bcd-39c4-878a-89bd1a3330e3
+
+https://r3-vlebooks-com.oxfordbrookes.idm.oclc.org/Reader?ean=9781473787346
+
+https://r4-vlebooks-com.oxfordbrookes.idm.oclc.org/EpubReader?ean=1780137909292
+
+
+
+Numbering Systems:
+
+why binary?
+-> computers themselves can only understand binary (on a hardware level)
+-> transistors; at a hardware level circuits are primarily built from transistors (modern systems have billions of them)
+-> in digital circuits, electrical signals are arranged to interpret two logical states (that being 0 (low voltage) and then 1 (being high voltage)) (these have set voltage ranges)
+-> the physical world under a computer is analog
+
+
+Lesson 1 Notes:
+(In Order)
+layer of coputing system:
+communications - computer are connected to networks to share information / communicate with other computers (networks / internet)
+applications - software developed to solve a specific issue / problem
+operating systems -  helps manage computers resources
+programming - software / instructions to manage and process data
+hardware - physical components of the computer system
+information - how information is represented on a computer (information is stored as binary numbers), computers store information by using memory and on / off type of switches
+
+
+
+Binary:
+-> count numbers, conversion bfrom binary to other number base, basic arithmetic operations in binary
+
+Why Binary?:
+-> computers used electronic devices to store / manipulate inforamation
+-> computers only understands on / off information and this i stranslated into numbers (binary digits) 
+-> only having two symbols / digits to represent binary numbers
+-> to translate a binary number into the corresponding decimal form we have to multiply each digit for each corresponding power of 2
+
+
+Binary Conversion Method:
+-> the first term is refered to as a base
+-> decimal numbers have 10 different digits 0-9
+-> its always, the digit we are dealling with x the base to the power of the position
+
+formula:
