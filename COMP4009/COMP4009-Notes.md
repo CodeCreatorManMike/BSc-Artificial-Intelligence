@@ -260,7 +260,16 @@ How we can convert a decimal into a binary/hexadecimal/octal:
 
 -> we use the remainder, from the bottom to the top in order to get the octal value
 
+348 = 534
 
+
+
+348 (example) To Hexadecimal
+348 / 16 = 21.75 | R12
+21 / 16 = 1.3125 | R5
+1.3125 / 16 = 0  | R1
+
+348 = 15C
 
 
 
