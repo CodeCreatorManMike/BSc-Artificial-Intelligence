@@ -1,57 +1,85 @@
-COMP4009: Foundations of Computer Systems (Semester 1 2026-2027:1[OBO])
-Notes:
+# COMP4009: Foundations of Computer Systems (Semester 1 2026-2027:1[OBO])
 
-read before week 2:
+**Notes:**
 
-https://research.ebsco.com/plink/016107f9-1bcd-39c4-878a-89bd1a3330e3
+## Read before Week 2
 
-https://r3-vlebooks-com.oxfordbrookes.idm.oclc.org/Reader?ean=9781473787346
+- https://research.ebsco.com/plink/016107f9-1bcd-39c4-878a-89bd1a3330e3
+- https://r3-vlebooks-com.oxfordbrookes.idm.oclc.org/Reader?ean=9781473787346
+- https://r4-vlebooks-com.oxfordbrookes.idm.oclc.org/EpubReader?ean=1780137909292
 
-https://r4-vlebooks-com.oxfordbrookes.idm.oclc.org/EpubReader?ean=1780137909292
+---
 
+## Contents
 
+1. [Numbering Systems: Why Binary?](#1-numbering-systems-why-binary)
+2. [Lesson 1 Notes: Layers of a Computing System](#2-lesson-1-notes-layers-of-a-computing-system)
+3. [Binary](#3-binary)
+4. [Binary Conversion Method](#4-binary-conversion-method)
+5. [Positional Number Formula](#5-positional-number-formula)
+6. [Binary and Hexadecimal](#6-binary-and-hexadecimal)
+7. [Binary and Octal](#7-binary-and-octal)
+8. [Conversion from Decimal to Binary](#8-conversion-from-decimal-to-binary)
+9. [Decimal to Octal](#9-decimal-to-octal)
 
-Numbering Systems:
+---
 
-why binary?
--> computers themselves can only understand binary (on a hardware level)
--> transistors; at a hardware level circuits are primarily built from transistors (modern systems have billions of them)
--> in digital circuits, electrical signals are arranged to interpret two logical states (that being 0 (low voltage) and then 1 (being high voltage)) (these have set voltage ranges)
--> the physical world under a computer is analog
+## 1. Numbering Systems: Why Binary?
 
+- Computers themselves understand binary at the hardware level.
+- **Transistors:** At the hardware level, circuits are primarily built from transistors. Modern systems have billions of them.
+- In digital circuits, electrical signals are interpreted as two logical states:
+  - **0** = low voltage
+  - **1** = high voltage
+  - These states have defined voltage ranges.
+- The physical world underlying a computer is **analog**.
 
-Lesson 1 Notes:
-(In Order)
-layer of coputing system:
-communications - computer are connected to networks to share information / communicate with other computers (networks / internet)
-applications - software developed to solve a specific issue / problem
-operating systems -  helps manage computers resources
-programming - software / instructions to manage and process data
-hardware - physical components of the computer system
-information - how information is represented on a computer (information is stored as binary numbers), computers store information by using memory and on / off type of switches
+---
 
+## 2. Lesson 1 Notes: Layers of a Computing System
 
+*In the order covered in the lesson:*
 
-Binary:
--> count numbers, conversion bfrom binary to other number base, basic arithmetic operations in binary
--> binary system is made up of bits (0/1 : on or off)
--> 8 bits is a byte (can store up to x)
+| Layer | Notes |
+|---|---|
+| **Communications** | Computers are connected to networks to share information and communicate with other computers (networks / internet). |
+| **Applications** | Software developed to solve a specific issue or problem. |
+| **Operating systems** | Help manage a computer's resources. |
+| **Programming** | Software / instructions to manage and process data. |
+| **Hardware** | The physical components of a computer system. |
+| **Information** | How information is represented on a computer. Information is stored as binary numbers, using memory and on/off-type switches. |
 
-Why Binary?:
--> computers used electronic devices to store / manipulate inforamation
--> computers only understands on / off information and this i stranslated into numbers (binary digits) 
--> only having two symbols / digits to represent binary numbers
--> to translate a binary number into the corresponding decimal form we have to multiply each digit for each corresponding power of 2
+---
 
+## 3. Binary
 
-Binary Conversion Method:
--> the first term is refered to as a base
--> decimal numbers have 10 different digits 0-9, but since we are dealing with binary numbers we always make use of a base of 2
--> its always, the digit we are dealling with x the base to the power of the position
+**Topics:** Counting numbers, converting from binary to other number bases, and performing basic arithmetic operations in binary.
 
+- The binary system is made up of **bits** (`0` or `1`: off or on).
+- **8 bits = 1 byte.** A byte can represent **256 distinct values** (`0`–`255` when unsigned).
 
+### Why binary?
 
-Positional Number Formula:
+- Computers use electronic devices to store and manipulate information.
+- Computers interpret on/off information, which is represented using numbers (**binary digits**).
+- Binary uses only **two symbols / digits**.
+- To convert a binary number to its corresponding decimal form, multiply each digit by its corresponding power of **2**, then add the results.
+
+---
+
+## 4. Binary Conversion Method
+
+- A number system is identified by its **base**.
+- Decimal has **10 digits** (`0`–`9`); binary uses **base 2**.
+- For each digit, calculate:
+
+  **Digit × base^(digit position)**
+
+- Count digit positions **from right to left**, beginning at **0**.
+
+---
+
+## 5. Positional Number Formula
 
 For any positional number system:
 
@@ -59,112 +87,127 @@ For any positional number system:
 
 Formula:
 
-`d_i × b^i`
+`dᵢ × bⁱ`
 
 Where:
 
-- d_i = the digit
-- b = the number base
-- i = the position of the digit, counting from 0 on the right
+- `dᵢ` = the digit
+- `b` = the number base
+- `i` = the position of the digit, counting from `0` on the right
 
 For a whole number:
 
-`N = Σ(d_i × b^i)`
+`N = Σ(dᵢ × bⁱ)`
 
+### Any numbering system
 
-Any Numbering System:
--> to work out the value you have to know the base and position
+To work out the value, you need to know the **base** and the **position** of each digit.
 
-Example:
+### Example: `1011` (binary to decimal)
 
-1011
+```text
+(1 × 2³) + (0 × 2²) + (1 × 2¹) + (1 × 2⁰)
 
-(1 x 2^3) + (0 x 2^2) + (1 x 2^1) + (1 x 2^0)
-
-1 x 8 = 8
-0 x 4 = 0
-1 x 2 = 2
-1 x 1 = 1
+1 × 8 = 8
+0 × 4 = 0
+1 × 2 = 2
+1 × 1 = 1
 
 8 + 0 + 2 + 1 = 11
+```
 
+**Result:** `1011₂ = 11₁₀`
 
-How to convert a decimal number to a binary number:
+### How to convert a decimal number to binary
 
+Use repeated division by **2** and read the remainders **from bottom to top**. See [Conversion from Decimal to Binary](#8-conversion-from-decimal-to-binary) for worked examples.
 
-Binary and Hexadecimal:
--> 4 bits can be used to represent 15 different hexadecimal symbols
--> hexadecimal numbers are numbers in base 16
--> 0-9 A-F
--> a byste is equivalent to 2 hexadecimal numbers, or nybbles (1 nybble=4 bits)
+---
 
--> hexadecimal essentially is a shorter / more human readible version of binary which combine 4 bits together to make it easier to read them
+## 6. Binary and Hexadecimal
 
-Example
+- **4 bits** can represent **16 distinct values** (`0`–`15`), matching the **16 hexadecimal symbols**.
+- Hexadecimal is **base 16**.
+- Its symbols are **`0`–`9` and `A`–`F`** (`A = 10` through `F = 15`).
+- **1 byte = 2 hexadecimal digits = 2 nibbles.** One nibble (also spelled *nybble*) is **4 bits**.
+- Hexadecimal is essentially a shorter, more human-readable representation of binary: grouping **4 bits** into **1 hexadecimal digit** makes long binary values easier to read.
 
-3F4
+### Example: `3F4` (hexadecimal to decimal)
 
-(3 x 16^2) + (15 x 16^1) + (4 x 16^0)
+`F = 15`, so:
 
+```text
+(3 × 16²) + (15 × 16¹) + (4 × 16⁰)
+```
 
+---
 
+## 7. Binary and Octal
 
-Binary and Octal:
--> 3 bits can be used to represent the 8 different octal symbols
--> octal numbers are numbers in bas 8 (0-7)
--> eg: 8 = 10 / 9 = 11
+- **3 bits** can represent the **8 different octal symbols**.
+- Octal is **base 8**, using digits **`0`–`7`**.
+- For example, decimal `8` is octal `10`, and decimal `9` is octal `11`.
 
-3647 Octal 
+**Example octal number:** `3647₈`
 
+---
 
+## 8. Conversion from Decimal to Binary
 
+**Method:** Repeatedly divide by **2** until the quotient is **0**, recording the remainder each time. Pass the quotient to the next stage. Read the remainders **vertically upward (bottom to top)** to get the binary value.
 
-Conversion From Decimal To Binary:
--> repeat divisuion by 2 until the quotient is 0 and keep remainder. pass the quotient to the next stage until 0
+### Example 1: `10` to binary
 
--> 10 to binary:
+```text
+10 ÷ 2 = 5  remainder 0
+ 5 ÷ 2 = 2  remainder 1
+ 2 ÷ 2 = 1  remainder 0
+ 1 ÷ 2 = 0  remainder 1
+                         ↑ Read upward
+```
 
-10/2 = 5 r0
-5/2 = 2 r1
-2/2 = 1 r0
-1/2 = 0 r1
+**Result:** `10₁₀ = 1010₂`
 
-(take the remainder from the last expression vertically upward to find out the binary value)
+### Example 2: `25` to binary
 
-10 = 1010
+```text
+25 ÷ 2 = 12  remainder 1
+12 ÷ 2 =  6  remainder 0
+ 6 ÷ 2 =  3  remainder 0
+ 3 ÷ 2 =  1  remainder 1
+ 1 ÷ 2 =  0  remainder 1
+                          ↑ Read upward
+```
 
+**Result:** `25₁₀ = 11001₂`
 
--> 25 to binary:
+### Example 3: `14` to binary
 
-25/2 = 12 r1
-12/2 = 6 r0
-6/2 = 3 r0
-3/2 = 1 r1
-1/2 = 0 r1
+```text
+14 ÷ 2 = 7  remainder 0
+ 7 ÷ 2 = 3  remainder 1
+ 3 ÷ 2 = 1  remainder 1
+ 1 ÷ 2 = 0  remainder 1
+                         ↑ Read upward
+```
 
-25 = 11001
+**Result:** `14₁₀ = 1110₂`
 
+---
 
--> 14 to binary:
+## 9. Decimal to Octal
 
-14/2 = 7 r0
-7/2 = 3 r1
-3/2 = 1 r1
-1/2 = 0 r1
+**Method:** Repeatedly divide by **8** until the quotient is **0**, keeping the remainder at each stage. Pass the quotient to the next stage. Read the remainders **from bottom to top**.
 
-14 = 1110
+### Example: `25` to octal
 
+```text
+25 ÷ 8 = 3  remainder 1
+ 3 ÷ 8 = 0  remainder 3
+                        ↑ Read upward
+```
 
-
-
-Decimal To Octal:
--> repeat division by 8 until the quotient is 0 and keep remainder. pass the quotient to the next stage until 0
-
--> 25 to octal:
-
-25/8
-
-
+**Result:** `25₁₀ = 31₈`
 
 
 Summary:
