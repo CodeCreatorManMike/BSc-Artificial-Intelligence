@@ -210,69 +210,841 @@ Use repeated division by **2** and read the remainders **from bottom to top**. S
 **Result:** `25₁₀ = 31₈`
 
 
-Summary:
-
 
 -----
+# Self Study
 
-Self Study:
-Number Systems Introduction - Decimal, Binary, Octal & Hexadecimal:
+## Number Systems Introduction — Decimal, Binary, Octal & Hexadecimal
 
-Decimal:
--> base 10, used for everyday counting 
+There are four main number systems we will work with:
 
-Binary:
--> base 2, used for computing
+| Number System   | Base | Digits Used |
+| --------------- | ---: | ----------- |
+| **Decimal**     |   10 | `0–9`       |
+| **Binary**      |    2 | `0–1`       |
+| **Octal**       |    8 | `0–7`       |
+| **Hexadecimal** |   16 | `0–9, A–F`  |
 
-Octal: 
--> base 8, 0-7
+---
 
-Hexadecimal:
--> base 16, 0-9 A-F
-0123456789ABCDEF (A-F corresponds to 10-15)
+## Decimal
 
+**Decimal is Base 10.**
 
+It is the number system we use for everyday counting.
 
-How we can convert a decimal into a binary/hexadecimal/octal:
--> we make use of a technique called successive division
+```text
+0 1 2 3 4 5 6 7 8 9
+```
 
-348 (example) To Binary
-348 / 2 = 174    | R0
-174 / 2 = 87     | R0
-87 / 2 = 43 (.5) | R1 (cause of the 0.5 extra)
-43 / 2 = 21 (.5) | R1
-21 / 2 = 10 (.5) | R1
-10 / 2 = 5       | R0
-5 / 2 = 2        | R1
-2 / 2 = 1        | R0
-1 / 2 = 0.5      | R1
+Example:
 
--> we use the remainder, from the bottom to the top /|\ in order to get the binary value
+```text
+348
+```
 
+---
+
+## Binary
+
+**Binary is Base 2.**
+
+Binary is heavily used in computing because it only contains two possible digits:
+
+```text
+0 1
+```
+
+Example:
+
+```text
+101011100
+```
+
+---
+
+## Octal
+
+**Octal is Base 8.**
+
+It uses the digits:
+
+```text
+0 1 2 3 4 5 6 7
+```
+
+There is no `8` or `9` in octal.
+
+Example:
+
+```text
+534
+```
+
+---
+
+## Hexadecimal
+
+**Hexadecimal is Base 16.**
+
+It uses:
+
+```text
+0 1 2 3 4 5 6 7 8 9 A B C D E F
+```
+
+The letters represent decimal values:
+
+| Hex | Decimal |
+| --- | ------: |
+| A   |      10 |
+| B   |      11 |
+| C   |      12 |
+| D   |      13 |
+| E   |      14 |
+| F   |      15 |
+
+So:
+
+```text
+0123456789ABCDEF
+```
+
+---
+
+# Converting Decimal to Binary / Octal / Hexadecimal
+
+To convert a decimal number into another number system, we can use a technique called **successive division**.
+
+The basic idea is:
+
+1. Divide the decimal number by the **base** you want.
+2. Record the **remainder**.
+3. Divide the quotient again.
+4. Keep going until the quotient becomes `0`.
+5. Read the remainders **from bottom to top**.
+
+```text
+↑
+Read
+remainders
+upwards
+↑
+```
+
+The number you divide by depends on the destination:
+
+| Conversion            | Divide By |
+| --------------------- | --------: |
+| Decimal → Binary      |         2 |
+| Decimal → Octal       |         8 |
+| Decimal → Hexadecimal |        16 |
+
+---
+
+# Decimal → Binary
+
+## Example: Convert `348` to Binary
+
+Because binary is **Base 2**, repeatedly divide by `2`.
+
+```text
+348 / 2 = 174 | R0
+174 / 2 = 87  | R0
+87  / 2 = 43  | R1
+43  / 2 = 21  | R1
+21  / 2 = 10  | R1
+10  / 2 = 5   | R0
+5   / 2 = 2   | R1
+2   / 2 = 1   | R0
+1   / 2 = 0   | R1
+```
+
+Now read the remainders **from bottom to top**:
+
+```text
+101011100
+```
+
+Therefore:
+
+```text
+348₁₀ = 101011100₂
+```
+
+or simply:
+
+```text
 348 = 101011100
+```
 
+---
 
-348 (example) To Octal
--> to work out the remainder we need take 0.5 (from 43.5) and multiply it out by 8 (base)
-348 / 8 = 43,5 | R4
-43 / 8 = 5.375 | R3
-5 / 8 = 0,625  | R5
+# Decimal → Octal
 
--> we use the remainder, from the bottom to the top in order to get the octal value
+## Example: Convert `348` to Octal
 
+Because octal is **Base 8**, repeatedly divide by `8`.
+
+```text
+348 / 8 = 43 | R4
+43  / 8 = 5  | R3
+5   / 8 = 0  | R5
+```
+
+Read the remainders **from bottom to top**:
+
+```text
+534
+```
+
+Therefore:
+
+```text
+348₁₀ = 534₈
+```
+
+or:
+
+```text
 348 = 534
+```
 
+---
 
+# Decimal → Hexadecimal
 
-348 (example) To Hexadecimal
-348 / 16 = 21.75 | R12
-21 / 16 = 1.3125 | R5
-1.3125 / 16 = 0  | R1
+## Example: Convert `348` to Hexadecimal
 
+Because hexadecimal is **Base 16**, repeatedly divide by `16`.
+
+```text
+348 / 16 = 21 | R12
+21  / 16 = 1  | R5
+1   / 16 = 0  | R1
+```
+
+Remember:
+
+```text
+12 = C
+```
+
+So the remainders are:
+
+```text
+C
+5
+1
+```
+
+Read them **from bottom to top**:
+
+```text
+15C
+```
+
+Therefore:
+
+```text
+348₁₀ = 15C₁₆
+```
+
+or:
+
+```text
 348 = 15C
+```
 
+---
 
+# Converting Back to Decimal
 
+When converting **to decimal**, we do not use successive division.
 
+Instead, we use **place values / powers of the base**.
 
+The general pattern is:
 
+```text
+digit × base^position
+```
+
+Positions start at `0` from the **right-hand side**.
+
+Example positions:
+
+```text
+4 3 2 1 0
+↓ ↓ ↓ ↓ ↓
+1 0 1 1 0
+```
+
+---
+
+# Binary → Decimal
+
+Binary uses **Base 2**.
+
+For example:
+
+```text
+10110101
+```
+
+Starting from the right:
+
+```text
+1 × 2^0
+0 × 2^1
+1 × 2^2
+0 × 2^3
+1 × 2^4
+1 × 2^5
+0 × 2^6
+1 × 2^7
+```
+
+So:
+
+```text
+(1 × 2^7)
++ (0 × 2^6)
++ (1 × 2^5)
++ (1 × 2^4)
++ (0 × 2^3)
++ (1 × 2^2)
++ (0 × 2^1)
++ (1 × 2^0)
+```
+
+Calculate the values:
+
+```text
+128 + 0 + 32 + 16 + 0 + 4 + 0 + 1
+```
+
+```text
+= 181
+```
+
+Therefore:
+
+```text
+10110101₂ = 181₁₀
+```
+
+---
+
+# Octal → Decimal
+
+Octal uses **Base 8**.
+
+Example:
+
+```text
+534
+```
+
+Positions:
+
+```text
+2 1 0
+↓ ↓ ↓
+5 3 4
+```
+
+Calculate:
+
+```text
+(5 × 8^2)
++ (3 × 8^1)
++ (4 × 8^0)
+```
+
+```text
+= (5 × 64)
++ (3 × 8)
++ (4 × 1)
+```
+
+```text
+= 320 + 24 + 4
+```
+
+```text
+= 348
+```
+
+Therefore:
+
+```text
+534₈ = 348₁₀
+```
+
+---
+
+# Hexadecimal → Decimal
+
+Hexadecimal uses **Base 16**.
+
+Example:
+
+```text
+15C
+```
+
+Remember:
+
+```text
+C = 12
+```
+
+Positions:
+
+```text
+2 1 0
+↓ ↓ ↓
+1 5 C
+```
+
+Calculate:
+
+```text
+(1 × 16^2)
++ (5 × 16^1)
++ (12 × 16^0)
+```
+
+```text
+= (1 × 256)
++ (5 × 16)
++ (12 × 1)
+```
+
+```text
+= 256 + 80 + 12
+```
+
+```text
+= 348
+```
+
+Therefore:
+
+```text
+15C₁₆ = 348₁₀
+```
+
+---
+
+# Binary → Octal
+
+Binary and octal have a useful shortcut.
+
+Every **3 binary digits** correspond to **1 octal digit**.
+
+Starting from the **right**, split the binary number into groups of 3.
+
+Example:
+
+```text
+101011100
+```
+
+Split:
+
+```text
+101 | 011 | 100
+```
+
+Convert each group:
+
+```text
+101 = 5
+011 = 3
+100 = 4
+```
+
+Therefore:
+
+```text
+101011100₂ = 534₈
+```
+
+### Binary → Octal Table
+
+| Binary | Octal |
+| ------ | ----: |
+| 000    |     0 |
+| 001    |     1 |
+| 010    |     2 |
+| 011    |     3 |
+| 100    |     4 |
+| 101    |     5 |
+| 110    |     6 |
+| 111    |     7 |
+
+---
+
+# Octal → Binary
+
+This works in reverse.
+
+Convert every octal digit into **3 binary digits**.
+
+Example:
+
+```text
+534
+```
+
+Convert each digit:
+
+```text
+5 = 101
+3 = 011
+4 = 100
+```
+
+Combine them:
+
+```text
+101 011 100
+```
+
+Therefore:
+
+```text
+534₈ = 101011100₂
+```
+
+---
+
+# Binary → Hexadecimal
+
+Every **4 binary digits** correspond to **1 hexadecimal digit**.
+
+Example:
+
+```text
+101011100
+```
+
+Start grouping from the right:
+
+```text
+1 | 0101 | 1100
+```
+
+Add leading zeros if necessary:
+
+```text
+0001 | 0101 | 1100
+```
+
+Convert each group:
+
+```text
+0001 = 1
+0101 = 5
+1100 = 12 = C
+```
+
+Therefore:
+
+```text
+101011100₂ = 15C₁₆
+```
+
+---
+
+# Hexadecimal → Binary
+
+Convert every hexadecimal digit into **4 binary digits**.
+
+Example:
+
+```text
+15C
+```
+
+Convert:
+
+```text
+1 = 0001
+5 = 0101
+C = 1100
+```
+
+Combine:
+
+```text
+0001 0101 1100
+```
+
+Leading zeros can be removed:
+
+```text
+101011100
+```
+
+Therefore:
+
+```text
+15C₁₆ = 101011100₂
+```
+
+---
+
+# Binary ↔ Hexadecimal Table
+
+| Decimal | Binary | Hex |
+| ------: | ------ | --- |
+|       0 | 0000   | 0   |
+|       1 | 0001   | 1   |
+|       2 | 0010   | 2   |
+|       3 | 0011   | 3   |
+|       4 | 0100   | 4   |
+|       5 | 0101   | 5   |
+|       6 | 0110   | 6   |
+|       7 | 0111   | 7   |
+|       8 | 1000   | 8   |
+|       9 | 1001   | 9   |
+|      10 | 1010   | A   |
+|      11 | 1011   | B   |
+|      12 | 1100   | C   |
+|      13 | 1101   | D   |
+|      14 | 1110   | E   |
+|      15 | 1111   | F   |
+
+---
+
+# Quick Conversion Cheat Sheet
+
+## Decimal → Binary
+
+```text
+Divide by 2 repeatedly.
+Record each remainder.
+Read remainders from BOTTOM → TOP.
+```
+
+Example:
+
+```text
+348₁₀ → 101011100₂
+```
+
+---
+
+## Decimal → Octal
+
+```text
+Divide by 8 repeatedly.
+Record each remainder.
+Read remainders from BOTTOM → TOP.
+```
+
+Example:
+
+```text
+348₁₀ → 534₈
+```
+
+---
+
+## Decimal → Hexadecimal
+
+```text
+Divide by 16 repeatedly.
+Record each remainder.
+Convert 10–15 into A–F.
+Read remainders from BOTTOM → TOP.
+```
+
+```text
+10 = A
+11 = B
+12 = C
+13 = D
+14 = E
+15 = F
+```
+
+Example:
+
+```text
+348₁₀ → 15C₁₆
+```
+
+---
+
+## Binary → Decimal
+
+```text
+Start powers at 0 from the RIGHT.
+
+Multiply each digit by:
+
+2^position
+
+Then add everything together.
+```
+
+Example:
+
+```text
+10110101₂ → 181₁₀
+```
+
+---
+
+## Octal → Decimal
+
+```text
+Start powers at 0 from the RIGHT.
+
+Multiply each digit by:
+
+8^position
+
+Then add everything together.
+```
+
+Example:
+
+```text
+534₈ → 348₁₀
+```
+
+---
+
+## Hexadecimal → Decimal
+
+```text
+Replace A–F with 10–15.
+
+Start powers at 0 from the RIGHT.
+
+Multiply each digit by:
+
+16^position
+
+Then add everything together.
+```
+
+Example:
+
+```text
+15C₁₆ → 348₁₀
+```
+
+---
+
+## Binary → Octal
+
+```text
+Split binary into groups of 3 from the RIGHT.
+
+Convert each group into one octal digit.
+```
+
+```text
+101 | 011 | 100
+ 5  |  3  |  4
+
+101011100₂ = 534₈
+```
+
+---
+
+## Octal → Binary
+
+```text
+Turn every octal digit into 3 binary digits.
+```
+
+```text
+5   3   4
+↓   ↓   ↓
+101 011 100
+
+534₈ = 101011100₂
+```
+
+---
+
+## Binary → Hexadecimal
+
+```text
+Split binary into groups of 4 from the RIGHT.
+
+Convert each group into one hexadecimal digit.
+```
+
+```text
+0001 | 0101 | 1100
+  1  |   5  |   C
+
+101011100₂ = 15C₁₆
+```
+
+---
+
+## Hexadecimal → Binary
+
+```text
+Turn every hexadecimal digit into 4 binary digits.
+```
+
+```text
+1    5    C
+↓    ↓    ↓
+0001 0101 1100
+
+15C₁₆ = 101011100₂
+```
+
+---
+
+# The Most Important Rules to Remember
+
+```text
+DECIMAL → something
+= DIVIDE repeatedly by the destination base
+= read remainders BOTTOM → TOP
+```
+
+```text
+something → DECIMAL
+= multiply digits by powers of that number system's base
+= positions start at 0 from the RIGHT
+= add everything together
+```
+
+```text
+BINARY ↔ OCTAL
+= groups of 3 bits
+```
+
+```text
+BINARY ↔ HEXADECIMAL
+= groups of 4 bits
+```
+
+```text
+Decimal = Base 10
+Binary  = Base 2
+Octal   = Base 8
+Hex     = Base 16
+```
+
+## Easy Memory Trick
+
+```text
+TO decimal      → POWERS
+FROM decimal    → DIVISION
+Binary ↔ Octal  → GROUP 3
+Binary ↔ Hex    → GROUP 4
+```
