@@ -1169,18 +1169,25 @@ Binary ↔ Hex    → GROUP 4
 - addition in binary is similiar to the addition in decimal (base 10) notation
 - we have to take into account that there are only two digits (0 and 1) and to represent a bigger number we will need an additional digit
 
+```text
 6+4 = 10 (two digits, in base 10)
 1+1 = 10 (2 digits, in binary)
+```
 
 ### Negative Numbers:
 
 - decimal numbers
+
+```text
   -7 can be written as -10 + 3
   3 is the compliment of 7 in base 10
   now 9 + (-7) is the same as 9 + 3 = 2 (throw away the 10 carry from 12)
+```
 
+```text
   with a 4 bit register we can only hold values between 0 and 15
   how could negative numbers be held?
+```
 
 ### Overflow:
 
@@ -1201,6 +1208,7 @@ Binary ↔ Hex    → GROUP 4
 ### Two Complement:
 
 - how to convert a decimal (base 10) number into 2s complement:
+
 1. convert the decimal number into binary as usual
 2. if the original number was negative, invert all bits of the number, so 1 is changed to 0 and 0 is changed to 1
 3. add the bit 1 to the inverted number
@@ -1235,57 +1243,70 @@ Watch this: https://www.youtube.com/watch?v=lKTsv6iVxV4
 - dont often do maths using only integers
 - using a fixed number of bits we can represent real numbers as we like
 
-46.25
+#### 46.25
+
 1. convert the integer part of the number(before the decimal point) to binary
 
-10110 = 46
+`10110 = 46`
 
 2. convert the fraction by multiplying the remaining fraction by 2 and extracting the bit before the decimal point
 
+```text
 .25 x 2 = 0.5 (0 bit in front of the point)
 .5 x 2 = 1.0
+```
 
-101110.01
+`101110.01`
 
 3. finish when the fraction part of the number is 0 or you have reached the computer precision (ie: run out of bits)
 
-17.75
+#### 17.75
+
 1. convert the integer part of the number (before the decimal point)
 
-10001 = 17
+`10001 = 17`
 
 2. convert the fraction by multiplying the remaining fraction by 2 and extracting the bit before the decimal point
 
+```text
 .75 x 2 = 1.5 (10001.1)
 0.5 x 2 = 1.0 (10001.11)
+```
 
-13.55
+#### 13.55
+
 1. conver the integer part of the number (before the decimal point)
 
-1101 = 13
+`1101 = 13`
 
 2. convert the fraction by multiplying the remaining fraction by 2 and extracting the bit before the decimal point
 
+```text
 .55 x 2 = 1.1 (1101.1)
 0.1 x 2 = 0.2 (1101.10)
 0.2 x 2 = 0.4 (1101.100)
 etc.. (until there are no more bits available)
+```
 
 ### Floating Point Numbers:
 
 - Problem: how to represent very large or very small numbers in a fixed number of digits?
 - Solution: Floating Point
 
+```text
 scientific notation uses;
 number = mantissa * 10^exponent
+```
 
 eg: 3.14 = 0.314 * 10^1
 
 Examples which show how floating point can be used
 
+```text
 12.0 = 0.12 x 10^2
 28000 = 0.28 x 10^5
 0.00375 = 0.37 x 10^-2
+```
 
 # Converting Fixed-Point Binary to Floating-Point Binary
 
@@ -1321,32 +1342,40 @@ The shifts change the mantissa, while the power of 2 keeps the original value th
 - 4 bits for the exponent
 - 11 bits are used for the mantissa
 
+```text
 s/exp/mantissa
 
 0/0100/11001100000
 +0100.11001100000
+```
 
 0010011001100000 -> 0010 0110 0110 0000 -> 2660 Hex
 
 #### example:
 
-18.55
+#### 18.55
 
 1. Convert the number into binary (fixed point notation)
-10010.100011
+
+   `10010.100011`
 
 2. Convert the number into floating point notation
-0.10010100011 2^5
+
+   `0.10010100011 2^5`
 
 3. Store the number in 2 bytye memory cell
+
+```text
   (5 bit) (10 bit)
 + exp     mantissa
 0 0101    10010100011
+```
 
 ## Lesson 3 Part two:
 
 ### Computer Components:
 
+```text
 (In This Order:)
 communications
 applications
@@ -1354,6 +1383,7 @@ operating systems
 programming
 hardware
 information
+```
 
 ### PC Components:
 
@@ -1376,9 +1406,9 @@ Input Device -> (Central Processing Unit(Control Unit + Arithmetic/Logic Unit) <
 
 - Low level componenets can be joined together to create even higher level functions
   - Logic gates to build an Arthmetic Logic Unit
-  - Can add and subtract numbers 
+    - Can add and subtract numbers 
   - A row of flip-flops to create a Register
-  - Can store large numbers
+    - Can store large numbers
 
 ### Components:
 
@@ -1449,9 +1479,11 @@ BUT... the data is held in binary form
 
 Recall the units - bits, bytes, words, .... and the number system called vinary
 
+```text
 Registers - cache - main memory - secondary storage
-- Increasing Storage
+-> Increasing Storage
 <- Increasing Speed
+```
 
 - Memory holds information, that is data and program instructions. Memory is measured in bytes. Putting Data (or information) into memory is called 'writing' to memory. extracting or obtaining information from memory is called 'reading' from memory.
 - memory is of two types: RAM and secondary storage
@@ -1475,19 +1507,22 @@ Registers - cache - main memory - secondary storage
 ### Memory Content:
 
 - 16 bit register holds binary values
+
+```text
 0 to 2^16 - 1 = 65,535 = 64k - 1 = 64000 * 1024 -1
 max value = FFFF (Hex)
           = 1111 1111 1111 1111 (Binary)
           = 65535
+```
 
 ### (Main Memory:)
 
 - Types
   - ROM (Read-Only Memory)
-  - How does the system start up? It runs a program from ROM which cannot be changed by the programmer -- bootstrap
+    - How does the system start up? It runs a program from ROM which cannot be changed by the programmer -- bootstrap
   - RAM (Random Access Memory)
-  - Volatile - the stored information disappears when the computer is turned off
-  - Can be changed easily, allowing different programs and data to be used
+    - Volatile - the stored information disappears when the computer is turned off
+    - Can be changed easily, allowing different programs and data to be used
 
 ### Secondary Storage:
 
@@ -1651,10 +1686,12 @@ XOR is called the exlusive OR gate
 #### A circuit to add:
 
 - adding two binary bits
+```text
 0 + 0 = 0
 0 + 1 = 1
 1 + 0 = 1
 1 + 1 = 0
+```
 
 #### Q: How Can We Read This To Build A Circuit?
 
@@ -1685,9 +1722,7 @@ X = A'B + AB'
   - minimise the expression
 - link: http://www.cburch.com/logisim/
 
-• Excellent tutorial at:
-http://www.cburch.com/logisim/docs/2.7/en/html/guide/tutorial/index.html
-• And
-https://www.youtube.com/watch?v=cMz7wyY_PxE
+- Excellent tutorial at: <http://www.cburch.com/logisim/docs/2.7/en/html/guide/tutorial/index.html>
+- And <https://www.youtube.com/watch?v=cMz7wyY_PxE>
 
 ## Lesson 5: (Boolean Expression Simplification)
