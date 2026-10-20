@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" role="img" aria-labelledby="title desc">
+  <title id="title">Six basic logic gates</title>
+  <desc id="desc">Circuit symbols for AND, OR, NOT, XOR, NAND, and NOR. Each has labeled input wires and an output wire. NAND and NOR have inversion bubbles at their outputs; XOR has an extra curved line at its inputs.</desc>
+  <style>
+    .panel { fill: #fff; stroke: #d0d7de; stroke-width: 1.5; }
+    .wire, .gate { fill: none; stroke: #24292f; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    .bubble { fill: #fff; stroke: #24292f; stroke-width: 3; }
+    .name { fill: #24292f; font: 700 18px system-ui, sans-serif; }
+    .label { fill: #57606a; font: 15px system-ui, sans-serif; }
+  </style>
+  <rect x="1" y="1" width="798" height="418" rx="12" fill="#f6f8fa" stroke="#d0d7de"/>
+
+  <g transform="translate(16 16)">
+    <rect class="panel" width="376" height="120" rx="8"/>
+    <text class="name" x="16" y="27">AND</text>
+    <text class="label" x="35" y="56">A</text><text class="label" x="35" y="92">B</text><text class="label" x="335" y="75">Y</text>
+    <path class="wire" d="M55 51 H125 M55 87 H125 M245 69 H325"/>
+    <path class="gate" d="M125 33 H182 C267 33 267 105 182 105 H125 Z"/>
+  </g>
+
+  <g transform="translate(408 16)">
+    <rect class="panel" width="376" height="120" rx="8"/>
+    <text class="name" x="16" y="27">OR</text>
+    <text class="label" x="35" y="56">A</text><text class="label" x="35" y="92">B</text><text class="label" x="335" y="75">Y</text>
+    <path class="wire" d="M55 51 H136 M55 87 H136 M246 69 H325"/>
+    <path class="gate" d="M122 33 Q148 69 122 105 Q198 105 246 69 Q198 33 122 33 Z"/>
+  </g>
+
+  <g transform="translate(16 150)">
+    <rect class="panel" width="376" height="120" rx="8"/>
+    <text class="name" x="16" y="27">NOT</text>
+    <text class="label" x="35" y="75">A</text><text class="label" x="335" y="75">Y</text>
+    <path class="wire" d="M55 69 H125 M251 69 H325"/>
+    <path class="gate" d="M125 33 V105 L239 69 Z"/>
+    <circle class="bubble" cx="245" cy="69" r="6"/>
+  </g>
+
+  <g transform="translate(408 150)">
+    <rect class="panel" width="376" height="120" rx="8"/>
+    <text class="name" x="16" y="27">XOR</text>
+    <text class="label" x="35" y="56">A</text><text class="label" x="35" y="92">B</text><text class="label" x="335" y="75">Y</text>
+    <path class="wire" d="M55 51 H136 M55 87 H136 M246 69 H325"/>
+    <path class="gate" d="M122 33 Q148 69 122 105 Q198 105 246 69 Q198 33 122 33 Z M111 33 Q137 69 111 105"/>
+  </g>
+
+  <g transform="translate(16 284)">
+    <rect class="panel" width="376" height="120" rx="8"/>
+    <text class="name" x="16" y="27">NAND</text>
+    <text class="label" x="35" y="56">A</text><text class="label" x="35" y="92">B</text><text class="label" x="335" y="75">Y</text>
+    <path class="wire" d="M55 51 H125 M55 87 H125 M257 69 H325"/>
+    <path class="gate" d="M125 33 H182 C267 33 267 105 182 105 H125 Z"/>
+    <circle class="bubble" cx="251" cy="69" r="6"/>
+  </g>
+
+  <g transform="translate(408 284)">
+    <rect class="panel" width="376" height="120" rx="8"/>
+    <text class="name" x="16" y="27">NOR</text>
+    <text class="label" x="35" y="56">A</text><text class="label" x="35" y="92">B</text><text class="label" x="335" y="75">Y</text>
+    <path class="wire" d="M55 51 H136 M55 87 H136 M258 69 H325"/>
+    <path class="gate" d="M122 33 Q148 69 122 105 Q198 105 246 69 Q198 33 122 33 Z"/>
+    <circle class="bubble" cx="252" cy="69" r="6"/>
+  </g>
+</svg>
