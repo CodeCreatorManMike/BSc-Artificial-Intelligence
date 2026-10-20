@@ -1048,3 +1048,646 @@ FROM decimal    → DIVISION
 Binary ↔ Octal  → GROUP 3
 Binary ↔ Hex    → GROUP 4
 ```
+
+---
+
+## Lesson 2:
+
+- computers are multimedia devices, they store process and display numbers, text, audio, images, videos etc
+
+### Analog / Digital Information
+
+- computers are finite in terms of storage capacity
+- anolog data: continous representation, analogous to the actual information it represents
+- digital data: a discrete representation, values are often quantised to the nearest value from one of a number of predefined values in range
+- digitize: breaking data into pieces and representing those pieces separately
+
+### how many things can a bit represent
+
+2^n (number of bits)
+
+### Representing Text:
+
+- there are a finite number of character to represent, so list thema nd assign each different character a binary value
+- character set: a list of characters and the codes used to represent each one, computer manufacturers have agreed to standardize on character codes
+
+### ASCII:
+
+- stands for American Standard Code for Information Interchange
+- originally used seven bits to represent each character, allowing for 128 unique characters (a last bit was used to control transmissions (parity: to check for communication errors) but networks use different formats now)
+- later extended ASCII evolved so that all eight bits were used
+
+### Unicode:
+
+- extended ascii is not enough characters for international use
+- unicode uses 16 bits per character
+- (makes use of Hex values to decide which character / language to display)
+
+### Represting Audio Information:
+
+- digitize the signal by sampling
+  - periodically measure the voltage (amplitude)
+  - record the numeric value
+- a sampling rate of about 40,000 times per second is enough to create a reasonable sound reproduction
+
+### Audio Formats:
+
+- WAV, AU, AIFF, VQF, MP3
+- mp3 is the most common format used
+- analyzes the frequency spread and discards information that cant be heard by humans (high>16KHz and low frequencies <20Hz)
+
+### Representing Images and Graphics:
+
+- color depth:
+  - the amount of data that is used to represent a color
+
+- HiColour:
+  - 16 bit color depth: five bits used for each number in an rgb value with the extra bit sometimes used to represent transparency
+
+- TrueColour:
+  - a 24-bit color depth: eight bits used for each number in an RGB value
+
+### Digitized Images and Graphics:
+
+- Digitizing a picture
+  - representing it as a collection of individual dots called pixels (as a bitmap)
+- Resolution:
+  - the number of pixels used to represent the picture
+- Raster Graphics:
+  - storage of data on a pixel-by-pixel basis bitmap, gif, jpeg, png are raster graphic (bitmap) formats
+- bitmap format
+  - contains the pixel colour values of the image from left to right and from top to bottom
+- gif format (indexed color)
+  - each image is made up of only 256 colors
+- jpeg format
+  - averages colour hues over short distances
+- png format
+  - life gif buy achieves greater compression with wider range of colour depths
+
+### Overview Of JPEG:
+
+- Joint Photographic Experts Group
+- designed to compress photographic images, for human viewing - exploiting our inability to see a full range of colours
+- is a lossy image compression
+
+#### Step 1:
+
+- seperate color (chrominance) information in each block from the light/dark (luminance) information
+
+#### Step 2 (option):
+
+- down-sample (average with adjacent pixels) colour data
+
+### Terminology:
+
+- bits: 1/0
+- byte: 8 bits (2 hexadecimal digits)
+- word: the content of a memory cell
+
+### Main Memory:
+
+- organised into units (bits, bytes, words)
+- each byte has an address associated with it
+- size measured in kilo or mega or giga or byte units
+- data and programs are stored in main memory 
+
+### Data Stored In Memory:
+
+- contents of memory are stored in binary
+- addresses are stored in binary too
+- we can manipulate addresses in our programs in the same way we can manipulate any other kind of data
+- this allows us to design and use complex data structures
+
+### Positive Numbers:
+
+- Positive numbers are stored in memory as a sequence of bits
+- in mathemtical terms there are an infinite of possible whole numbers
+- in computer terms the number of bytes used to store a number will limit the largest number that can be represented
+
+### Binary Addition:
+
+- addition in binary is similiar to the addition in decimal (base 10) notation
+- we have to take into account that there are only two digits (0 and 1) and to represent a bigger number we will need an additional digit
+
+6+4 = 10 (two digits, in base 10)
+1+1 = 10 (2 digits, in binary)
+
+### Negative Numbers:
+
+- decimal numbers
+  -7 can be written as -10 + 3
+  3 is the compliment of 7 in base 10
+  now 9 + (-7) is the same as 9 + 3 = 2 (throw away the 10 carry from 12)
+
+  with a 4 bit register we can only hold values between 0 and 15
+  how could negative numbers be held?
+
+### Overflow:
+
+- where the receiving field cannot hold the value of the arithmetic operation
+- occurs where two numbers of the same sign yield a result of a different sign
+  + 3 + 4 = 7 but + 9 + 9 = 8 with an overflow of 1 from the 18
+
+### Whole Numbers:
+
+- we will see now how to convert any whole number, positive or negative into binary
+- we need to know how many bits we are going to use to represent the number
+- we will start with 4 bits
+- the most significant (left most) bit will be used for the sign of the number
+  - numbers that start with bit 1 will be negative
+  - numbers that start with bit 0 will be positive
+- we will use the two's complement notation
+
+### Two Complement:
+
+- how to convert a decimal (base 10) number into 2s complement:
+1. convert the decimal number into binary as usual
+2. if the original number was negative, invert all bits of the number, so 1 is changed to 0 and 0 is changed to 1
+3. add the bit 1 to the inverted number
+
+#### Example With 4 bits:
+
+-5
+
+Convert the decimal number (ignore the sign) into binary
+0101 = 5
+
+If the original number was negative, inverts all bits of the number
+1010
+
+Add the value 1 to the inverted number
+1010 + 0001 = 1011 = -5
+
+#### Two Complements With 8 Bits:
+
+-30
+
+00011110
+
+11100001 + 00000001 = 11100010 = -30
+
+Watch this: https://www.youtube.com/watch?v=lKTsv6iVxV4
+
+## Lesson 3:
+
+### Real Numbers Fixed Point Representation:
+
+- dont often do maths using only integers
+- using a fixed number of bits we can represent real numbers as we like
+
+46.25
+1. convert the integer part of the number(before the decimal point) to binary
+
+10110 = 46
+
+2. convert the fraction by multiplying the remaining fraction by 2 and extracting the bit before the decimal point
+
+.25 x 2 = 0.5 (0 bit in front of the point)
+.5 x 2 = 1.0
+
+101110.01
+
+3. finish when the fraction part of the number is 0 or you have reached the computer precision (ie: run out of bits)
+
+17.75
+1. convert the integer part of the number (before the decimal point)
+
+10001 = 17
+
+2. convert the fraction by multiplying the remaining fraction by 2 and extracting the bit before the decimal point
+
+.75 x 2 = 1.5 (10001.1)
+0.5 x 2 = 1.0 (10001.11)
+
+13.55
+1. conver the integer part of the number (before the decimal point)
+
+1101 = 13
+
+2. convert the fraction by multiplying the remaining fraction by 2 and extracting the bit before the decimal point
+
+.55 x 2 = 1.1 (1101.1)
+0.1 x 2 = 0.2 (1101.10)
+0.2 x 2 = 0.4 (1101.100)
+etc.. (until there are no more bits available)
+
+### Floating Point Numbers:
+
+- Problem: how to represent very large or very small numbers in a fixed number of digits?
+- Solution: Floating Point
+
+scientific notation uses;
+number = mantissa * 10^exponent
+
+eg: 3.14 = 0.314 * 10^1
+
+Examples which show how floating point can be used
+
+12.0 = 0.12 x 10^2
+28000 = 0.28 x 10^5
+0.00375 = 0.37 x 10^-2
+
+# Converting Fixed-Point Binary to Floating-Point Binary
+
+A binary number can be written as a **mantissa × a power of 2**. In these examples, the binary point is moved so the mantissa starts with `0.1` (its first fractional bit is `1`). The number of places moved determines the exponent.
+
+| Original number | Move the binary point | Mantissa | Exponent | Floating-point form |
+|---|---|---|---:|---|
+| `1110.001₂` (greater than 1) | 4 places left, before the most significant bit (MSB) | `0.1110001₂` | `+4` | `0.1110001₂ × 2⁴` |
+| `0.000111₂` (less than 1) | 3 places right, until the first `1` is reached | `0.111000₂` | `−3` | `0.111000₂ × 2⁻³` |
+
+## Rule to remember
+
+- Move the point **left** → **positive** exponent. Count the places moved left.
+- Move the point **right** → **negative** exponent. Count the places moved right.
+- The **MSB** is the leftmost `1` in the number. Here, the normalized mantissa has its point immediately before that `1`.
+
+## Worked shifts
+
+```text
+1110.001₂  →  0.1110001₂ × 2⁴
+              ← 4 places
+
+0.000111₂  →  0.111000₂ × 2⁻³
+              → 3 places
+```
+
+The shifts change the mantissa, while the power of 2 keeps the original value the same. Trailing zeros in `0.111000₂` do not change its value.
+
+### Storage Of A Floating-Point Number:
+
+- if we use a 16-bit word to store a floating point number
+- 1 bit is used to store the sign (0 positive, 1 negative)
+- 4 bits for the exponent
+- 11 bits are used for the mantissa
+
+s/exp/mantissa
+
+0/0100/11001100000
++0100.11001100000
+
+0010011001100000 -> 0010 0110 0110 0000 -> 2660 Hex
+
+#### example:
+
+18.55
+
+1. Convert the number into binary (fixed point notation)
+10010.100011
+
+2. Convert the number into floating point notation
+0.10010100011 2^5
+
+3. Store the number in 2 bytye memory cell
+  (5 bit) (10 bit)
++ exp     mantissa
+0 0101    10010100011
+
+## Lesson 3 Part two:
+
+### Computer Components:
+
+(In This Order:)
+communications
+applications
+operating systems
+programming
+hardware
+information
+
+### PC Components:
+
+Tower Case, Power Supply, CPU, Motherboard, RAM/Memory, Graphics/Video Card, Cooling/Fans, Sound Card, SSD - Solid State Drive Or Hard Drive(s), Speakers, Screen (LCD), Keyboard/Mouse, Optical Drive(DVD burner or blueray), Network Interface Card(ethernet, WIFI), Operating System Software
+
+### Von Nuemann Computer Architecture
+
+Input Device -> (Central Processing Unit(Control Unit + Arithmetic/Logic Unit) <--> Memory Unit) -> Output Device & <--> Auxiliary Storage Device
+
+### Low Level Computer Hardware:
+
+- Computers work digitally (using binary)
+- we built simple logic units (and/or/not)
+- We could combine these to carry out higher level functions
+- we could combine these into memory elements
+  - Flip-Flops, storing 1 bit of information
+  - Multiple Flip-Flops to store multiple bits for bytes or words of data
+
+### Mid Level Computer Hardware:
+
+- Low level componenets can be joined together to create even higher level functions
+  - Logic gates to build an Arthmetic Logic Unit
+  - Can add and subtract numbers 
+  - A row of flip-flops to create a Register
+  - Can store large numbers
+
+### Components:
+
+- CPU: performs the basic operations
+  - the engine (brain of the computer)
+- Memory Holds:
+  - the algorithm specifying the action to be performed
+  - the data upon which the operations are to act
+- The Input Output Devices (I/O):
+  - interface with the user, input data and output results
+
+### Central Processing Unit (CPU):
+
+- Modern PCs usually have an intel microprocessor
+- The microprocessor speed is measured in GHz (Gigahertz) and can range from 2GHz to over 6GHz
+- The Processor (CPU) is the 'brain' of the computer and performs all computations (within the ALU)
+
+(ALU - Control unit) = registers (special memory storage units)
+
+- Arithmetic Logic Unit (ALU): Performs data manipulation and calculations
+- Control Unit: Co ordinates the machines activities
+
+### Arthmetic Logic Unit:
+
+- Performs basic arthmetic operations such as adding
+- Performs logical operations such as ADD, AND, OR, NOT
+- Most modern ALUs have a small amount of special memory storage units called registers 
+
+- Performs the operations on the operands held in the general purpose registers
+  - register one holds my current balance
+  - register 2 holds my salary
+  - the instruction is ADD
+
+BUT... the data is held in binary form
+
+### The Control Unit:
+
+- Fetches instruction (from memory)
+- Interprets (decodes) the instruction (what does ADD instructions do?)
+- Uses in the appropriate circuitry to carry out (execute) each instruction
+
+#### Instruction Register (IR):
+
+- ccontains the instruction that is being executed
+
+#### Program Counter (PC):
+
+- Contains the memory address of the next instruction to be executed 
+
+### Registers:
+
+- Cells for temporary storage of information
+
+#### Data Registers:
+
+#### Instruction Registers (IR):
+
+- Contains the instructions that is being executed
+
+#### Program Counter (PC):
+
+- Contains the address of the next instruction to be executed
+
+### Memory:
+
+- a collection of cells, each with a unique physical address;
+- both addresses and contents are in binary 
+
+Recall the units - bits, bytes, words, .... and the number system called vinary
+
+Registers - cache - main memory - secondary storage
+- Increasing Storage
+<- Increasing Speed
+
+- Memory holds information, that is data and program instructions. Memory is measured in bytes. Putting Data (or information) into memory is called 'writing' to memory. extracting or obtaining information from memory is called 'reading' from memory.
+- memory is of two types: RAM and secondary storage
+
+- Fast memory situated close to the ALU and CPU (on same chip). it is expensive
+- Volatile (lost when power if off)
+- Small amount - typically 8, 16, 32, 64 bits long
+- May only have 16 or 32 registers altogether
+- Named, e.g R0, R1 etc
+- Special functions
+- Very fast (and expensive)
+
+### Main Memory:
+
+- Slower memory
+- Large amounts available
+- Volatile
+- Addressable
+- General Purpose
+
+### Memory Content:
+
+- 16 bit register holds binary values
+0 to 2^16 - 1 = 65,535 = 64k - 1 = 64000 * 1024 -1
+max value = FFFF (Hex)
+          = 1111 1111 1111 1111 (Binary)
+          = 65535
+
+### (Main Memory:)
+
+- Types
+  - ROM (Read-Only Memory)
+  - How does the system start up? It runs a program from ROM which cannot be changed by the programmer -- bootstrap
+  - RAM (Random Access Memory)
+  - Volatile - the stored information disappears when the computer is turned off
+  - Can be changed easily, allowing different programs and data to be used
+
+### Secondary Storage:
+
+- Secondary storage holds more data - from several hundred gigabytes to terabytes
+- Secondary storage was usually magnetic disk, also known as a hard disk, but now we normally use solid state drive (SSD)
+- Fixed inside the PC
+- we can also store data onto a floppy disk (back in the day) or special type of CD, DVD, or USB (solid flash) memory device or an external hard drive
+
+### Input/Output Units:
+
+#### Input Units:
+
+- a device through which data and programs from the outside world are entered into the computer
+
+#### Output Units:
+
+- a device through which results stored in the computer memory are made available to the outside world
+
+### Flow Of Information
+
+#### Bus:
+
+- set of wires that connect all major computer components (everything connects to the Bus)
+
+### Classification Of Computers:
+
+- Supercomputers:
+  - These can process billions of instructions per second (used for wather forecasting aircraft design etc)
+- Mainframes
+  - these can process millions of instructions per second, used by banks, insurance companies, airline reservation systems etc.
+- Personal Computer:
+  - used in offices, laptops, tablet, mobile devices etc.
+- Embedded Systems:
+  - a single microprocessor with programs stored in ROM
+  - consumer electronics
+
+### Distributed System:
+
+- Not a stand-alone computer;
+  - eg: a bank has input terminal at its branches (like a cash point) however all transcations may be computer at a centralised location
+  - information about customers may be stored at yet another location, the bank systems may therefore comprise several computers which can communicate with each other
+
+- the computers on ccampus are all connected together through a Local Area Network (LAN). this allows users to send email to other users on the network, access data held in the computer on the netowork etc
+
+- clouds, mobile clouds, ...
+
+## Lesson 4: Computing Logic
+
+### Logic Level:
+
+- lowest level, below this is electronics and physics
+- at the logic level we describe what is happening to individual bits of information
+- how are the bits:
+  - stored 
+  - moved
+  - modified
+
+### Gates and Circuits:
+
+#### Gate:
+
+- A device performs a basic operation on electrical signals
+- Gates are electronic devices used to operate with bits
+- Basic gate operations are boolean local operations 
+  - And
+  - Or
+  - Not
+
+### Circuits:
+
+- Gates combined to perform more complicated tasks
+  - eg: add two numbers
+
+### Logic Description:
+
+- how do we describe the behaviour of gates and circuits
+
+- Boolean Expressions
+  - Uses boolean algebra, a mathematical notation for expressing two valued logic
+
+- Logic Diagrams:
+  - A graphical representation of a circuit: each gate has its own symbol
+
+- Truth Tables:
+  - A table showing all possible input value and the associated output values
+
+### Gates:
+
+- Three Main Gates
+  - AND
+  - OR
+  - NOT
+
+- Other Useful Gates:
+  - NAND
+  - NOR
+  - XOR
+
+![Six logic gate symbols: AND, OR, NOT, XOR, NAND, and NOR, with their input and output wires](images/logic-gates.svg)
+
+### AND Gate:
+
+- accepts two input signals
+- if both are 1 and the output is 1, otherwise the output is 0 (both essentially need to be the same)
+
+### OR Gate:
+
+- accepts two input signals
+- if both are 0 the output is 0, otherwise the output is 1 (if one or more signals are 1 the output would be 1)
+
+### NOT Gate:
+
+- accepts one input signal (0 or 1) and returns the opposite signal as output
+
+### XOR Gate:
+
+- accepts two input signals
+- if both are the same the output is 0, otherwise the output is 1 (basically 1 if they are different)
+- note the difference betwen XOR gate and the OR gate; they differ only in one input situation
+- When both input signals are 1, the OR gate produces a 1 while the XOR produces a 0
+
+XOR is called the exlusive OR gate
+
+### NAND Gate:
+
+- accepts two input signals
+- if both are 1 the output is 0, otherwise the output is 1
+- essentially anything except 1 / 1 is an output of
+
+### NOR Gate:
+
+- accepts two input signals
+- if both are 0 the output is 1, otherwise the output is 0
+
+### Review Of Gate Processing:
+
+- A NOT gate inverts its single input
+- An AND gate produces 1 if both input values are 1
+- An OR gate produces 0 if both input values are 0
+- An XOR gate produces 0 if both inputs are 1
+- A NAND gate produces 0 if both inputs are 1
+- A NOR gate produces a 1 if both inputs are 0
+
+### Circuits:
+
+- Combinational Circuit:
+  - The input values explicitly determine the output
+
+- Sequenctial Circuit:
+  - The output is a function of the input values and the existing state of the circuit 
+
+- We describe the circuit operations using:
+  - Boolean Expressions
+  - Logic Diagrams
+  - Truth Tables
+
+### Combinational Circuits:
+
+- Gates are combined into circuits by using the output of one gate as the input for another 
+
+#### A circuit to add:
+
+- adding two binary bits
+0 + 0 = 0
+0 + 1 = 1
+1 + 0 = 1
+1 + 1 = 0
+
+#### Q: How Can We Read This To Build A Circuit?
+
+X = A'B + AB'
+
+### Logic Functions:
+
+- We describe the function of gates and circuits using 
+  - Truth Tables
+  - Boolean Algebra
+  - Logic Diagrams
+
+### Derive Boolean Expression:
+
+#### Rules To Derive Boolean Expression From Truth Tables:
+
+- Given the truth table with its inputs and outputs:
+  1. consider the rows of the truth table where output is 1
+  2. For each output 1 row, write a boolean expression containing the input variables connected with AND operators (.) if the value of the input is 0, the input will appear inverted
+  3. Combine all the expressions by using OR operators
+
+### Logisim Software:
+
+- Freeware for drawing circuits
+- Given a circuit it can help us to:
+  - simulate the circuit
+  - analyse the truth table
+  - minimise the expression
+- link: http://www.cburch.com/logisim/
+
+• Excellent tutorial at:
+http://www.cburch.com/logisim/docs/2.7/en/html/guide/tutorial/index.html
+• And
+https://www.youtube.com/watch?v=cMz7wyY_PxE
+
+## Lesson 5: (Boolean Expression Simplification)
