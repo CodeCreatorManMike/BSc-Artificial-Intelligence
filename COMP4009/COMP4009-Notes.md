@@ -1064,7 +1064,7 @@ Binary ↔ Hex    → GROUP 4
 
 ### how many things can a bit represent
 
-2^n (number of bits)
+`2^n` (number of bits)
 
 ### Representing Text:
 
@@ -1177,17 +1177,12 @@ Binary ↔ Hex    → GROUP 4
 ### Negative Numbers:
 
 - decimal numbers
-
-```text
   -7 can be written as -10 + 3
   3 is the compliment of 7 in base 10
   now 9 + (-7) is the same as 9 + 3 = 2 (throw away the 10 carry from 12)
-```
 
-```text
   with a 4 bit register we can only hold values between 0 and 15
   how could negative numbers be held?
-```
 
 ### Overflow:
 
@@ -1208,7 +1203,6 @@ Binary ↔ Hex    → GROUP 4
 ### Two Complement:
 
 - how to convert a decimal (base 10) number into 2s complement:
-
 1. convert the decimal number into binary as usual
 2. if the original number was negative, invert all bits of the number, so 1 is changed to 0 and 0 is changed to 1
 3. add the bit 1 to the inverted number
@@ -1243,70 +1237,57 @@ Watch this: https://www.youtube.com/watch?v=lKTsv6iVxV4
 - dont often do maths using only integers
 - using a fixed number of bits we can represent real numbers as we like
 
-#### 46.25
-
+46.25
 1. convert the integer part of the number(before the decimal point) to binary
 
-`10110 = 46`
+10110 = 46
 
 2. convert the fraction by multiplying the remaining fraction by 2 and extracting the bit before the decimal point
 
-```text
 .25 x 2 = 0.5 (0 bit in front of the point)
 .5 x 2 = 1.0
-```
 
-`101110.01`
+101110.01
 
 3. finish when the fraction part of the number is 0 or you have reached the computer precision (ie: run out of bits)
 
-#### 17.75
-
+17.75
 1. convert the integer part of the number (before the decimal point)
 
-`10001 = 17`
+10001 = 17
 
 2. convert the fraction by multiplying the remaining fraction by 2 and extracting the bit before the decimal point
 
-```text
 .75 x 2 = 1.5 (10001.1)
 0.5 x 2 = 1.0 (10001.11)
-```
 
-#### 13.55
-
+13.55
 1. conver the integer part of the number (before the decimal point)
 
-`1101 = 13`
+1101 = 13
 
 2. convert the fraction by multiplying the remaining fraction by 2 and extracting the bit before the decimal point
 
-```text
 .55 x 2 = 1.1 (1101.1)
 0.1 x 2 = 0.2 (1101.10)
 0.2 x 2 = 0.4 (1101.100)
 etc.. (until there are no more bits available)
-```
 
 ### Floating Point Numbers:
 
 - Problem: how to represent very large or very small numbers in a fixed number of digits?
 - Solution: Floating Point
 
-```text
 scientific notation uses;
 number = mantissa * 10^exponent
-```
 
 eg: 3.14 = 0.314 * 10^1
 
 Examples which show how floating point can be used
 
-```text
 12.0 = 0.12 x 10^2
 28000 = 0.28 x 10^5
 0.00375 = 0.37 x 10^-2
-```
 
 # Converting Fixed-Point Binary to Floating-Point Binary
 
@@ -1342,40 +1323,32 @@ The shifts change the mantissa, while the power of 2 keeps the original value th
 - 4 bits for the exponent
 - 11 bits are used for the mantissa
 
-```text
 s/exp/mantissa
 
 0/0100/11001100000
 +0100.11001100000
-```
 
 0010011001100000 -> 0010 0110 0110 0000 -> 2660 Hex
 
 #### example:
 
-#### 18.55
+18.55
 
 1. Convert the number into binary (fixed point notation)
-
-   `10010.100011`
+10010.100011
 
 2. Convert the number into floating point notation
-
-   `0.10010100011 2^5`
+0.10010100011 2^5
 
 3. Store the number in 2 bytye memory cell
-
-```text
   (5 bit) (10 bit)
 + exp     mantissa
 0 0101    10010100011
-```
 
 ## Lesson 3 Part two:
 
 ### Computer Components:
 
-```text
 (In This Order:)
 communications
 applications
@@ -1383,7 +1356,6 @@ operating systems
 programming
 hardware
 information
-```
 
 ### PC Components:
 
@@ -1406,9 +1378,9 @@ Input Device -> (Central Processing Unit(Control Unit + Arithmetic/Logic Unit) <
 
 - Low level componenets can be joined together to create even higher level functions
   - Logic gates to build an Arthmetic Logic Unit
-    - Can add and subtract numbers 
+  - Can add and subtract numbers 
   - A row of flip-flops to create a Register
-    - Can store large numbers
+  - Can store large numbers
 
 ### Components:
 
@@ -1481,7 +1453,7 @@ Recall the units - bits, bytes, words, .... and the number system called vinary
 
 ```text
 Registers - cache - main memory - secondary storage
--> Increasing Storage
+- Increasing Storage
 <- Increasing Speed
 ```
 
@@ -1519,10 +1491,10 @@ max value = FFFF (Hex)
 
 - Types
   - ROM (Read-Only Memory)
-    - How does the system start up? It runs a program from ROM which cannot be changed by the programmer -- bootstrap
+  - How does the system start up? It runs a program from ROM which cannot be changed by the programmer -- bootstrap
   - RAM (Random Access Memory)
-    - Volatile - the stored information disappears when the computer is turned off
-    - Can be changed easily, allowing different programs and data to be used
+  - Volatile - the stored information disappears when the computer is turned off
+  - Can be changed easily, allowing different programs and data to be used
 
 ### Secondary Storage:
 
@@ -1686,6 +1658,7 @@ XOR is called the exlusive OR gate
 #### A circuit to add:
 
 - adding two binary bits
+
 ```text
 0 + 0 = 0
 0 + 1 = 1
@@ -1695,7 +1668,7 @@ XOR is called the exlusive OR gate
 
 #### Q: How Can We Read This To Build A Circuit?
 
-X = A'B + AB'
+`X = A'B + AB'`
 
 ### Logic Functions:
 
@@ -1722,7 +1695,130 @@ X = A'B + AB'
   - minimise the expression
 - link: http://www.cburch.com/logisim/
 
-- Excellent tutorial at: <http://www.cburch.com/logisim/docs/2.7/en/html/guide/tutorial/index.html>
-- And <https://www.youtube.com/watch?v=cMz7wyY_PxE>
+- Excellent tutorial: http://www.cburch.com/logisim/docs/2.7/en/html/guide/tutorial/index.html
+- And: https://www.youtube.com/watch?v=cMz7wyY_PxE
+
 
 ## Lesson 5: (Boolean Expression Simplification)
+
+### Boolean Expression Simplification:
+
+Why do we need to do simplification?
+
+- re (truth tables)/Boolean expressions
+
+(all terms are written out, an over line is used to indicate terms whereby x/s = 1)
+
+sum of product (x = (A.B.C)+(A.B.C)) - display of the terms and which of them would fall within the not/and/or etc (you can build a logic circuit using this)
+
+
+
+### How Do We Do Simplification:
+
+```text
+. = AND
++ = OR
+' = NOT
+
+A . 0 = 0
+A . 1 = A
+A + 0 = A
+A + 1 = 1
+A . A = A
+A + A = A
+A . (NOT A) = 0
+A + (NOT A) = 1
+(A+B)(A+C) = A+BC
+(A'+B)(A+B) = B
+AC'+ABC' = AC'
+AB'D+AB'D' = AB'
+```
+
+### Example:
+
+```text
+(A+B)(A+C)
+= A.A + A.C + B.A + B.C (remove brackets)
+= A + A.C + B.A + B.C
+= A (explanation below) + B.A + B.C
+```
+
+```text
+A C   X
+-------
+0 0   0
+0 1   0
+1 0   1
+1 1   1
+```
+
+(the result is determined by A - which is why C doesnt matter when simplifyin we just keep A)
+
+= A + B.C 
+
+
+### Example:
+
+```text
+(A'+B)(A+B)
+= A'B + BA + B
+= B
+```
+
+### Example:
+
+```text
+AB'D + AB'D'
+
+= Factorization
+= AB' (D+D')
+= AB'
+```
+
+Learn: (K-Map Method) https://www.youtube.com/watch?v=zO6ITbbA_b0&t=175s
+
+### Step 1:
+
+Derive the boolean expression
+(x = (terms within the expression) (how many 1's in your table))
+
+X = A'B+AB
+
+### Step 2:
+
+Simplification - Find what the result is determined by
+
+```text
+X = B(A'+A) (Factorization) (A'A = 1)
+x = B.1 = B
+```
+
+
+For this section go through:
+
+- https://www.youtube.com/watch?v=JQBRzsPhw2w
+- https://www.youtube.com/watch?v=1eIFnKOZ-oY
+- https://www.youtube.com/watch?v=43MVorZRtE0
+- https://www.youtube.com/watch?v=r6Tk1-jZxzg
+- https://www.youtube.com/watch?v=RO5alU6PpSU
+
+
+### Circuitry inside the CPU - K maps - Gray codes
+
+- gray codes are a sequence of binaries numbers where each number differs by one digit
+- you must use gray codes in k maps
+
+### how to generate:
+
+- write 0 and 1 in a column
+- draw a line under the column
+- reflect the numbers under the line
+- for numbers above the line put a 0 in front, for those under put a 1 
+
+### grouping:
+
+- only group the cells with ones, it can be done vertically or horizontally not diagonally
+
+### simplifying tip:
+
+- when doing logic diagrams only include letters / terms which we actually use within the simplified expression (not ones which have no effect on output at all / arent included during simplification)
