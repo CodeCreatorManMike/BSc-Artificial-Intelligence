@@ -1822,3 +1822,33 @@ For this section go through:
 ### simplifying tip:
 
 - when doing logic diagrams only include letters / terms which we actually use within the simplified expression (not ones which have no effect on output at all / arent included during simplification)
+
+
+
+lesson 6: CPU and Machine Code
+
+
+The Von Neumann Architecture:
+contains an input and then output device with the cpu in the middle (control unit & arithmetic/logic unit -> memory unit)
+
+The Harvard Architecture:
+instruction memory / ALU / Data Memory / I/O -> control unit (they are all seperate for security reasons)
+
+
+Von Neumann Vs Harvard:
+-> the key difference is memory
+Von Neumann:
+-> programs and data are stored in the same memory
+-> simpler, and easier for the OS to manage
+-> standard pc architecture
+Harvard:
+- programs are stored in one memory, data stored in another
+- more complex, but allows for greater security
+- often used in mobile devices
+
+
+The Bus:
+- the bus is designed to transfer data and control information between components in a computer system optionally, a bus may also transfer power
+- buses may be internal (connecting components inside the computer), external (connecting components outside the computer), or both
+- buses may be parallel (transfer multiple bits in the same direction at any one time), or serial (transfer a single bit in the same direction at any one time)
+- buses may be parallel (transfer multiple bits in the same direction at one time
